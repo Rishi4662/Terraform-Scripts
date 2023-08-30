@@ -37,3 +37,4 @@ terraform.rc
 .terraform.*
 *.json
 terraform-*
+.DS_Store
