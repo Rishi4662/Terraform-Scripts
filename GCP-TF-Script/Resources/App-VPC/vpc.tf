@@ -24,3 +24,7 @@ output "app-vpc" {
 output "app-vpc-cidr" {
   value = ["${var.subnet_network1_range}","${var.subnet_network2_range}"]
 }
+
+output "app-subnet-name" {
+  value = google_compute_subnetwork.subnetwork1.name
+}

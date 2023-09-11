@@ -19,3 +19,9 @@ module "vpc-firewall" {
   network3          = module.db-vpc-network.db-vpc
   app_network_range = module.app-vpc-network.app-vpc-cidr
 }
+
+module "compute_engine" {
+  source        = "../Resources/CI"
+  firewall_tags = ["${module.vpc-firewall.firewall_ssh}", "${module.vpc-firewall.firewall_http}"]
+  subnetwork_name = module.app-vpc-network.app-subnet-name
+}

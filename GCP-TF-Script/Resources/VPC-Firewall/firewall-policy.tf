@@ -43,3 +43,15 @@ resource "google_compute_firewall" "db" {
   source_tags   = ["${var.db_tag}"]
   source_ranges = var.app_network_range
 }
+
+output "firewall_ssh" {
+  value = google_compute_firewall.only-ssh.name
+}
+
+output "firewall_http" {
+  value = google_compute_firewall.http.name
+}
+
+output "firewall_db" {
+  value = google_compute_firewall.db.name
+}
