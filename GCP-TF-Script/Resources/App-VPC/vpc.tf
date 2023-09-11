@@ -22,7 +22,7 @@ output "app-vpc" {
 }
 
 output "app-vpc-cidr" {
-  value = ["${var.subnet_network1_range}","${var.subnet_network2_range}"]
+  value = ["${var.subnet_network1_range}", "${var.subnet_network2_range}"]
 }
 
 output "app-subnet-name" {

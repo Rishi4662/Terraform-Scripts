@@ -21,7 +21,11 @@ module "vpc-firewall" {
 }
 
 module "compute_engine" {
-  source        = "../Resources/CI"
-  firewall_tags = ["${module.vpc-firewall.firewall_ssh}", "${module.vpc-firewall.firewall_http}"]
+  source          = "../Resources/CI"
+  firewall_tags   = ["${module.vpc-firewall.firewall_ssh}", "${module.vpc-firewall.firewall_http}"]
   subnetwork_name = module.app-vpc-network.app-subnet-name
+}
+
+module "mysql-db" {
+  source              = "../Resources/SQL"
 }
