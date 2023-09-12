@@ -1,53 +1,53 @@
 # Variables used for MySQL-DB
 
 variable "name" {
-    type = string
+  type = string
 }
 
 variable "rg-name" {
-    type = string
+  type = string
 }
 
 variable "resource-location" {
-    type = string
+  type = string
 }
 
 variable "db-version" {
-    type    = string
-    default = "5.7"
+  type    = string
+  default = "5.7"
 }
 
 variable "admin_username" {
-    type    = string
-    default = "user"
+  type    = string
+  default = "user"
 }
 
 variable "storage_mb" {
-    type = number
-    default = 5120
+  type    = number
+  default = 5120
 }
 
 variable "Email" {
-    type = string
+  type = string
 }
 
 variable "Owner" {
-    type = string
+  type = string
 }
 
 variable "Purpose" {
-    type = string
+  type = string
 }
 
 variable "Client" {
-    type = string
+  type = string
 }
 
 variable "db_name" {
-    type    = string
-    default = "my-db"
+  type    = string
+  default = "my-db"
 }
 
 variable "vm-ip" {
-    type = string
+  type = string
 }

@@ -1,47 +1,47 @@
 variable "size" {
-    type        = string
-    default     = "Standard_DS1_v2"
+  type    = string
+  default = "Standard_DS1_v2"
 }
 
 variable "name" {
-    type        = string
+  type = string
 }
 
 variable "resource-location" {
-    type        = string
+  type = string
 }
 
 variable "rg-name" {
-    type        = string
+  type = string
 }
 
 variable "subnet-id" {
-    type        = string
+  type = string
 }
 
 variable "username" {
-    type        = string
+  type = string
 }
 
 variable "Purpose" {
-    type        = string
-    default     = "L&D-Training"
+  type    = string
+  default = "L&D-Training"
 }
 
 variable "Client" {
-    type        = string
-    default     = "Cognizant-Servian"
+  type    = string
+  default = "Cognizant-Servian"
 }
 
 variable "Email" {
-    type        = string
+  type = string
 }
 
 variable "Owner" {
-    type        = string
+  type = string
 }
 
 variable "vm-password" {
-    type    = string
-    default = "Le@rn1TP@ssw0rd"
+  type    = string
+  default = "Le@rn1TP@ssw0rd"
 }

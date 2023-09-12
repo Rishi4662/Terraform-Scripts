@@ -2,21 +2,21 @@
 
 locals {
   common_tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
+    Email   = var.Email
+    Owner   = var.Owner
+    Purpose = var.Purpose
+    Client  = var.Client
   }
 }
 
 # To Create Random Password
 
 resource "random_password" "password" {
-  length           = 16
-  lower            = true
-  upper            = true
-  numeric          = true
-  special          = false
+  length  = 16
+  lower   = true
+  upper   = true
+  numeric = true
+  special = false
 }
 
 # To genrate random integer
@@ -25,11 +25,11 @@ resource "random_id" "number" {
   keepers = {
     first = "${timestamp()}"
   }
-  byte_length = 2 
+  byte_length = 2
 }
 
 resource "azurerm_storage_account" "storage_account" {
-  name                     = format("%s%s",lower("${var.name}storage"),random_id.number.hex)
+  name                     = format("%s%s", lower("${var.name}storage"), random_id.number.hex)
   resource_group_name      = var.rg-name
   location                 = var.resource-location
   account_tier             = "Standard"
@@ -39,22 +39,22 @@ resource "azurerm_storage_account" "storage_account" {
 # To Create MySQL Database
 
 resource "azurerm_mysql_server" "my-db" {
-    name                         = lower("${var.name}-MySQL-DB")
-    resource_group_name          = var.rg-name
-    location                     = var.resource-location
-    version                      = var.db-version
-    administrator_login          = var.admin_username
-    administrator_login_password = random_password.password.result
+  name                         = lower("${var.name}-MySQL-DB")
+  resource_group_name          = var.rg-name
+  location                     = var.resource-location
+  version                      = var.db-version
+  administrator_login          = var.admin_username
+  administrator_login_password = random_password.password.result
 
-    sku_name                          = "GP_Gen5_2"
-    storage_mb                        = var.storage_mb
-    ssl_enforcement_enabled           = false
-    ssl_minimal_tls_version_enforced  = "TLSEnforcementDisabled"
-    geo_redundant_backup_enabled      = true
-    public_network_access_enabled     = true
+  sku_name                         = "GP_Gen5_2"
+  storage_mb                       = var.storage_mb
+  ssl_enforcement_enabled          = false
+  ssl_minimal_tls_version_enforced = "TLSEnforcementDisabled"
+  geo_redundant_backup_enabled     = true
+  public_network_access_enabled    = true
 
-    tags = local.common_tags
-  
+  tags = local.common_tags
+
 }
 
 # To Create Database Inside MySQL Database Server

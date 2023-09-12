@@ -1,36 +1,36 @@
 # Local variable file for VNET Creation
 
 variable "name" {
-    type    = string
+  type = string
 }
 
 variable "resource-location" {
-    type    = string
-    default = "Australia East"
+  type    = string
+  default = "Australia East"
 }
 
 variable "rg-name" {
-     type   = string
+  type = string
 }
 
 variable "Purpose" {
-    type        = string
-    default     = "L&D-Training"
+  type    = string
+  default = "L&D-Training"
 }
 
 variable "Client" {
-    type        = string
-    default     = "Cognizant-Servian"
+  type    = string
+  default = "Cognizant-Servian"
 }
 
 variable "Email" {
-    type        = string
+  type = string
 }
 
 variable "Owner" {
-    type        = string
+  type = string
 }
 
 variable "nsg_id" {
-    type        = string
+  type = string
 }

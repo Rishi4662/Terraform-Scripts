@@ -1,5 +1,5 @@
 variable "aws_region" {
-    default = "ca-central-1"
+  default = "ca-central-1"
 }
 
 variable "subnet_id" {}

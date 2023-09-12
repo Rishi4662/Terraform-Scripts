@@ -2,10 +2,10 @@
 
 locals {
   common_tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
+    Email   = var.Email
+    Owner   = var.Owner
+    Purpose = var.Purpose
+    Client  = var.Client
   }
 }
 
@@ -34,16 +34,16 @@ resource "azurerm_network_interface" "nic" {
 
 # To Create Virtual Machine
 resource "azurerm_linux_virtual_machine" "my_vm" {
-  name                  = "${var.name}-vm"
-  location              = var.resource-location
-  resource_group_name   = var.rg-name
-  size                  = var.size
-  network_interface_ids = [azurerm_network_interface.nic.id]
-  computer_name         = "ubuntu"
-  admin_username        = var.username
-  admin_password        = var.vm-password
+  name                            = "${var.name}-vm"
+  location                        = var.resource-location
+  resource_group_name             = var.rg-name
+  size                            = var.size
+  network_interface_ids           = [azurerm_network_interface.nic.id]
+  computer_name                   = "ubuntu"
+  admin_username                  = var.username
+  admin_password                  = var.vm-password
   disable_password_authentication = false
-  custom_data           = filebase64("${path.module}/custom-script.tpl")
+  custom_data                     = filebase64("${path.module}/custom-script.tpl")
 
   os_disk {
     name                 = "${var.name}-os-disk"
@@ -66,5 +66,5 @@ output "vm_ip_address" {
 }
 
 output "password" {
-    value = azurerm_linux_virtual_machine.my_vm.admin_password
+  value = azurerm_linux_virtual_machine.my_vm.admin_password
 }

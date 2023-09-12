@@ -27,5 +27,5 @@ module "compute_engine" {
 }
 
 module "mysql-db" {
-  source              = "../Resources/SQL"
+  source = "../Resources/SQL"
 }

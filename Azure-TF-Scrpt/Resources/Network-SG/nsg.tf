@@ -2,10 +2,10 @@
 
 locals {
   common_tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
+    Email   = var.Email
+    Owner   = var.Owner
+    Purpose = var.Purpose
+    Client  = var.Client
   }
 }
 
