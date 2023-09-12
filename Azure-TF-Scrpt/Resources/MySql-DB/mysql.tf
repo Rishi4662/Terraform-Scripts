@@ -1,3 +1,14 @@
+# Tags
+
+locals {
+  common_tags = {
+        Email    = var.Email
+        Owner    = var.Owner
+        Purpose  = var.Purpose
+        Client   = var.Client
+  }
+}
+
 # To Create Random Password
 
 resource "random_password" "password" {
@@ -42,12 +53,7 @@ resource "azurerm_mysql_server" "my-db" {
     geo_redundant_backup_enabled      = true
     public_network_access_enabled     = true
 
-    tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
-  }
+    tags = local.common_tags
   
 }
 

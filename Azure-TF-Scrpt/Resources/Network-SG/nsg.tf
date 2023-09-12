@@ -1,3 +1,14 @@
+#Important-Tags
+
+locals {
+  common_tags = {
+        Email    = var.Email
+        Owner    = var.Owner
+        Purpose  = var.Purpose
+        Client   = var.Client
+  }
+}
+
 # To Ftch IP Address of Current Machine
 
 data "http" "my_ip_address" {
@@ -11,12 +22,7 @@ resource "azurerm_network_security_group" "nsg" {
   location            = var.resource-location
   resource_group_name = var.rg-name
 
-  tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
-  }
+  tags = local.common_tags
 }
 
 resource "azurerm_network_security_rule" "http_inbound" {

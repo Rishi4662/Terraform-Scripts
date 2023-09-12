@@ -1,3 +1,14 @@
+#Common-Tags
+
+locals {
+  common_tags = {
+        Email    = var.Email
+        Owner    = var.Owner
+        Purpose  = var.Purpose
+        Client   = var.Client
+  }
+}
+
 
 # To Create Public-IP
 resource "azurerm_public_ip" "public_ip" {
@@ -47,12 +58,7 @@ resource "azurerm_linux_virtual_machine" "my_vm" {
     version   = "latest"
   }
 
-  tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
-  }
+  tags = local.common_tags
 }
 
 output "vm_ip_address" {

@@ -1,3 +1,14 @@
+#Common-Tags
+
+locals {
+  common_tags = {
+        Email    = var.Email
+        Owner    = var.Owner
+        Purpose  = var.Purpose
+        Client   = var.Client
+  }
+}
+
 # To Create Azure-Virtual-Network and Subnets
 
 resource "azurerm_virtual_network" "vnet" {
@@ -5,12 +16,7 @@ resource "azurerm_virtual_network" "vnet" {
   location            = var.resource-location
   resource_group_name = var.rg-name
   address_space       = ["10.0.0.0/16"]
-  tags = {
-        Email    = var.Email
-        Owner    = var.Owner
-        Purpose  = var.Purpose
-        Client   = var.Client
-  }
+  tags = local.common_tags
 }
 
 resource "azurerm_subnet" "subnet1" {
